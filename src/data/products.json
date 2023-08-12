@@ -1,0 +1,80 @@
+[
+    {
+        "name": "Licuadora",
+        "description": "Licuadora 3 velocidades, 800Wtts de potencia",
+        "price": 9999,
+        "discount": null,
+        "image": "img-Licuadora.jpg",
+        "category": "visited"
+    },
+    {
+        "name": "Celular",
+        "description": "Celular Samsung A52",
+        "price": 69000,
+        "discount": 5,
+        "image": "img-celularA52.jpg",
+        "category": "Phone"
+    },
+    {
+        "name": "Lavarropas LG",
+        "description": "Lavarropas LG",
+        "price": 110000,
+        "discount": null,
+        "image": "img-lavarropasLG.jpg",
+        "category": "visited"
+    },
+    {
+        "name": "Lavarropas Samsung",
+        "description": "Lavarropas Samsung",
+        "price": 112000,
+        "discount": 8,
+        "image": "img-lavarropasSamsung.jpg",
+        "category": "visited"
+    },
+    {
+        "name": "Guitarra Fender",
+        "description": "Guitarra Fender Stratocaster Sunburst",
+        "price": 670000,
+        "discount": null,
+        "image": "img-fender.jpg",
+        "category": "Guitar"
+    },
+    {
+        "name": "Gibson SG 57'",
+        "description": "Gibson Les Paul año 1957 Gold",
+        "price": 1200000,
+        "discount": null,
+        "image": "img-gibsonLp.jpg",
+        "category": "visited"
+    },
+    {
+        "name": "Shecter Omen 6 ",
+        "description": "Guitarra Shecter Omen 6 black",
+        "price": 354697,
+        "discount": null,
+        "image": "http://localhost:3000/images/omen6.png",
+        "category": "Guitar"
+    },
+    {
+        "name": "LG TV 32 pulgadas",
+        "description": "LG TV 32 pulgadas",
+        "price": 60120,
+        "discount": null,
+        "image": "img-lgtv.jpg",
+        "category": "visited"
+    },
+    {
+        "name": "Samsung S23",
+        "description": "Samsung S23 Blanco",
+        "price": 334000,
+        "discount": null,
+        "image": "img-S23.jpg",
+        "category": "Phone"
+    },
+    {
+        "id": 10,
+        "name": "guitarrita",
+        "price": "1234",
+        "image": "image -1691715229930).png"
+    }
+]
