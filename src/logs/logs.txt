@@ -1,5 +1,14 @@
+Ruta - /products/64dc574ab72abc62f4831c4c
+Ruta - /products/delete/64dc5d551e5a2f6a902b9bf2
+Ruta - /products/delete/64dc574ab72abc62f4831c4c
+Ruta - /
+Ruta - /products/listar
+Ruta - /
+Ruta - /products/listar
+Ruta - /products/listar
 Ruta - /products/crear
 Ruta - /products/crear
 Ruta - /products/crear
 Ruta - /products/crear
-Ruta - /products/crear
+Ruta - /products/update/64dec5b193985a0209e6dfbe
+Ruta - /products/delete/64dec5b193985a0209e6dfbe

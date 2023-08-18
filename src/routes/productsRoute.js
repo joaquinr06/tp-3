@@ -8,7 +8,7 @@ const logs = require('../logs/logs')
 router.get('/listar', logs, controller.listar);
 router.get('/:id', logs, controller.id);
 router.post('/crear', logs, upload.single('image'), controller.crear);
-
-
+router.put('/update/:id', logs, controller.update);
+router.delete('/delete/:id', logs, controller.delete)
 
 module.exports = router;

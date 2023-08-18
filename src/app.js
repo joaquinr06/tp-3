@@ -1,17 +1,16 @@
 const path = require('path');
 const express = require('express');
-const mongoose = require('mongoose');
 const app = express();
 const home = require('./routes/homeRoute');
 const product = require('./routes/productsRoute');
 const error = require('./middlewares/error');
+const mongodb = require('./database/models/connect');
 
 /* Base de datos */
 //const mongodb = 'mongodb://localhost:27017/loDePipo'
+mongodb();
 
-mongoose.connect('mongodb://127.0.0.1:27017/loDePipo')
-    .then(() => console.log('Conectado a la db'))
-    .catch(e => console.log('error'));
+
 
 /* Configuraciones de la app */
 app.use(express.static(path.resolve(__dirname, '../public')));
@@ -26,4 +25,5 @@ app.use('/products', product)
 app.use(error);
 
 /* Server */
-app.listen(3000, () => console.log('Server andando joya'));
+const puerto = 3000;
+app.listen(puerto, () => console.log(`Servidor andando joya en el puerto ${puerto}`));

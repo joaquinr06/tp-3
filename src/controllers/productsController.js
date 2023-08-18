@@ -1,50 +1,55 @@
-const path = require('path');
-const fs = require('fs');
-
-
-
-const ruta = path.resolve(__dirname, '../data/products.json');
-const jsonProducts = fs.readFileSync(ruta, { encoding: 'utf-8' });
-let products = JSON.parse(jsonProducts);
+const Product = require('../database/models/Product');
 
 
 
 const productController = {
-    crear: (req, res) => {
-        let product = {};
-        if (req.body.name == '') {
-            return res.json({ mgs: 'el campo Name es requerido' });
-        } else if (req.body.price == '') {
-            return res.json({ mgs: 'el campo Price es requerido' });
-        } else if (req.body.category == '') {
-            return res.json({ mgs: 'el campo Category es requerido' });
-        } else if (req.body.description == '') {
-            return res.json({ mgs: 'el campo Description es requerido' });
-        } else if (req.body.image == '') {
-            return res.json({ mgs: 'el campo Image es requerido' });
+    crear: async (req, res) => {
+        try {
+            let product = {
+                name: req.body.name,
+                price: req.body.price,
+                discount: req.body.discount,
+                category: req.body.category,
+                description: req.body.description,
+                Image: req.file.filename,
+                colors: [req.body.colors]
+            }
+            const productDB = await Product.create(product)
+            res.status(201).json(productDB)
+        } catch (error) {
+            if (error.errors.description) {
+                return res.status(400).json('240 son los carácteres máximos permitidos')
+            }
+            res.status(500).json(error)
         }
-        product.id = products.length + 1
-        product.name = req.body.name;
-        product.price = req.body.price;
-        product.discount = req.body.discount;
-        product.category = req.body.category;
-        product.description = req.body.description;
-        product.image = req.file.filename;
-        products.push(product);
-
-        let productsJson = JSON.stringify(products, null, 4);
-
-        fs.writeFileSync(ruta, productsJson, { encoding: 'utf-8' });
-        res.status(201).json(product);
-
     },
-    listar: (req, res) => {
-        res.json(products);
+    update: async (req, res) => {
+        try {
+            const productUpdate = await Product.findByIdAndUpdate(req.params.id, req.body);
+            return res.status(200).json(productUpdate);
+        } catch (error) {
+            console.log(error);
+        }
     },
-    id: (req, res) => {
-        let id = +req.params.id;
-        let producto = products.filter(product => product.id == id);
-        res.json(producto);
+    listar: async (req, res) => {
+        const products = await Product.find({});
+        res.status(200).json(products);
+    },
+    id: async (req, res) => {
+        try {
+            const productId = await Product.findById(req.params.id);
+            return res.json(productId);
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    delete: async (req, res) => {
+        try {
+            const productDelete = await Product.findByIdAndDelete(req.params.id, req.body);
+            return res.status(200).json(productDelete);
+        } catch (error) {
+            console.log(error);
+        }
     }
 }
 
