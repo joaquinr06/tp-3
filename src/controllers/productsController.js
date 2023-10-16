@@ -50,7 +50,14 @@ const productController = {
         } catch (error) {
             console.log(error);
         }
+    },
+    buscador: async (req, res) => {
+        console.log(req.query.name);
+        if (!req.query.name) {
+            return res.status(404).json({ message: "product not found" })
+        }
+        const product = await Product.find({ "name": { $regex: '.*' + req.query.name + '.*' } });
+        res.json(product);
     }
 }
-
 module.exports = productController;
