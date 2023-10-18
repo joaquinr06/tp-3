@@ -11,15 +11,12 @@ const productController = {
                 discount: req.body.discount,
                 category: req.body.category,
                 description: req.body.description,
-                Image: req.file.filename,
+                image: req.file.filename,
                 colors: [req.body.colors]
             }
             const productDB = await Product.create(product)
             res.status(201).json(productDB)
         } catch (error) {
-            if (error.errors.description) {
-                return res.status(400).json('240 son los carácteres máximos permitidos')
-            }
             res.status(500).json(error)
         }
     },
